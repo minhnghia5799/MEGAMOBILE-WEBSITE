@@ -29,3 +29,15 @@ Route::get('/store', function () {
 Route::get('/single-product', function () {
     return view('shop/single-product');
 });
+Route::get('/quanlydonhang', function () {
+    return view('admin/quanlydonhang');
+});
+Route::get('/chitietdonhang', function () {
+    return view('admin/chitietdonhang');
+});
+Route::get('/quanlyloaisach', function () {
+    return view('admin/quanlyloaisach');
+});
+Route::get('/quanlysach', function () {
+    return view('admin/quanlysach');
+});
