@@ -19,74 +19,12 @@ The above copyright notice and this permission notice shall be included in all c
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="admin/img/logo-small.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Admin libro
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-  <!-- CSS Files -->
-  <link href="admin/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="admin/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="admin/demo/demo.css" rel="stylesheet" />
+@include('admin.layout.head')
 </head>
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="white" data-active-color="danger">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
-      <div class="logo">
-        <a href="?page=home" class="simple-text logo-mini">
-          <div class="logo-image-small">
-            <img src="admin/img/logo-small.png">
-          </div>
-        </a>
-        <a href="?page=home" class="simple-text logo-normal">
-        LIBRO BOOKSTORE
-          <!-- <div class="logo-image-big">
-            <img src="../assets/img/logo-big.png">
-          </div> -->
-        </a>
-      </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          
-        <li style="display:none">
-            <a href="./chitietdonhang.php">
-              <i class="nc-icon nc-single-02"></i>
-              <p>Chi tiết đơn hàng</p>
-            </a>
-          </li>
-          <li >
-            <a href="?page=admin&dashboard=quanlysach">
-              <i class="nc-icon nc-tile-56"></i>
-              <p>Quản lý sách</p>
-            </a>
-          </li>
-          <li class="active ">
-            <a  href="?page=admin&dashboard=quanlyloaisach">
-              <i class="nc-icon nc-tile-56"></i>
-              <p>Quản lý loại sách</p>
-            </a>
-          </li>
-          <li >
-            <a href="?page=admin&dashboard=quanlydonhang">
-              <i class="nc-icon nc-tile-56"></i>
-              <p>Quản lý đơn hàng</p>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
+  @include('admin.layout.sidebar')
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
@@ -167,55 +105,17 @@ The above copyright notice and this permission notice shall be included in all c
                     <tbody>
                       
                   </table>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           
-      <footer class="footer footer-black  footer-white ">
-        <div class="container-fluid">
-          <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li>
-                  <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
-                </li>
-                <li>
-                  <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
-                </li>
-                <li>
-                  <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
-                </li>
-              </ul>
-            </nav>
-            <div class="credits ml-auto">
-              <span class="copyright">
-                ©
-                <script>
-                  document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-              </span>
-            </div>
-          </div>
-        </div>
-      </footer>
+          @include('admin.layout.footer')
     </div>
   </div>
-  <!--   Core JS Files   -->
-  <script src="admin/js/core/jquery.min.js"></script>
-  <script src="admin/js/core/popper.min.js"></script>
-  <script src="admin/js/core/bootstrap.min.js"></script>
-  <script src="admin/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chart JS -->
-  <script src="admin/js/plugins/chartjs.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="admin/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="admin/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
-  <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-  <script src="admin/demo/demo.js"></script>
+  @include('admin.layout.script')
 </body>
 
 </html>
