@@ -13,13 +13,17 @@ class Coupon extends Migration
      */
     public function up()
     {
-        Schema::create('Couoon', function (Blueprint $table) {
+        Schema::create('coupon', function (Blueprint $table) {
             $table->string('MaCoupon');
             $table->date('NgayBD');
             $table->date('NgayKT');
             $table->float('GiaTri');
             $table->string('TinhTrang');
         });
+
+         Schema::table('coupon', function (Blueprint $table) {
+             $table->primary('MaCoupon');
+         });
     }
 
     /**

@@ -13,8 +13,8 @@ class DanhMucSanPham extends Migration
      */
     public function up()
     {
-        Schema::create('DanhMucSanPham', function (Blueprint $table) {
-            $table->integer('idDanhMuc');
+        Schema::create('danhmucsanpham', function (Blueprint $table) {
+            $table->increments('idDanhMuc');
             $table->string('TenDanhMuc');
         });
     }

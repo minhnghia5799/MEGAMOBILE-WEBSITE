@@ -13,11 +13,18 @@ class ChiTietSanPham extends Migration
      */
     public function up()
     {
-        Schema::create('ChiTietSanPham', function (Blueprint $table) {
-            $table->integer('idSanPham');
-            $table->integer('idKhachHang');
+        Schema::create('chitietsanpham', function (Blueprint $table) {
+            $table->integer('idSanPham')->unsigned();
+            $table->integer('idKhachHang')->unsigned();
             $table->integer('DanhGia');
             $table->text('NhanXet');
+        });
+
+        Schema::table('chitietsanpham', function (Blueprint $table) {
+            $table->primary(['idSanPham', 'idKhachHang']);
+            
+            $table->foreign('idKhachHang')->references('idKhachHang')->on('khachhang');
+            $table->foreign('idSanPham')->references('idSanPham')->on('sanpham'); 
         });
     }
 

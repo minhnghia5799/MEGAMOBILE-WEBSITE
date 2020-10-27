@@ -13,10 +13,17 @@ class ChiTietHoaDon extends Migration
      */
     public function up()
     {
-        Schema::create('ChiTietHoaDon', function (Blueprint $table) {
+        Schema::create('chitiethoadon', function (Blueprint $table) {
             $table->integer('idDonHang');
             $table->integer('idSanPham');
             $table->float('GiaLucMua');
+        });
+
+        Schema::table('chitiethoadon', function (Blueprint $table) {
+            $table->primary(['idSanPham', 'idDonHang']);
+            
+            $table->foreign('idDonHang')->references('idDonHang')->on('DonHang');
+            $table->foreign('idSanPham')->references('idSanPham')->on('SanPham'); 
         });
     }
 

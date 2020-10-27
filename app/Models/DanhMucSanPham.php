@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class DanhMucSanPham extends Model
 {
     use HasFactory;
+
+    protected $table ="danhmucsanpham";
+    public function SanPham(){
+        return $this->hasMany(SanPham::class,'DanhMuc','idDanhMuc');
+    }
 }

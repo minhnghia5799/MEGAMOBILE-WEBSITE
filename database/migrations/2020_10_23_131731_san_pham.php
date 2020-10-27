@@ -14,20 +14,25 @@ class SanPham extends Migration
     public function up()
     {
 
-        Schema::create('SanPham', function (Blueprint $table) {
-
+        Schema::create('sanpham', function (Blueprint $table) {
             $table->increments('idSanPham');
             $table->string('TenSanPham');
             $table->integer('DanhMuc');
             $table->float('Gia');
             $table->float('GiaKhuyenMai');
             $table->string('DuongDanAnh');
+            $table->text('MoTa');
             $table->integer('SoLuongBan');
             $table->integer('SoLuotXem');
             $table->integer('SoLuongHienCo');
             $table->string('TinhTrang');
             $table->date('CapNhatCuoi');
         });
+        
+        Schema::table('sanpham', function (Blueprint $table) {
+            $table->foreign('DanhMuc')->references('idKhachHang')->on('DanhMuc');
+        });
+
     }
 
     /**
@@ -37,6 +42,6 @@ class SanPham extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('SanPham');
+        Schema::dropIfExists('sanpham');
     }
 }

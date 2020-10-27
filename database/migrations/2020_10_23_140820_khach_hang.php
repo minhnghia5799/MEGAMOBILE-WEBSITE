@@ -13,7 +13,7 @@ class KhachHang extends Migration
      */
     public function up()
     {
-        Schema::create('KhachHang', function (Blueprint $table) {
+        Schema::create('khachhang', function (Blueprint $table) {
             $table->increments('idKhachHang');
             $table->string('Email');
             $table->string('DienThoai');

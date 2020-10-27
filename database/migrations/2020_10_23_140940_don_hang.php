@@ -13,13 +13,18 @@ class DonHang extends Migration
      */
     public function up()
     {
-        Schema::create('DonHang', function (Blueprint $table) {
+        Schema::create('donhang', function (Blueprint $table) {
             $table->increments('idDonHang');
             $table->integer('idKhachHang');
             $table->string('TinhTrang');
             $table->date('NgayTao');
             $table->float('TongTien');
             $table->string('Coupon');
+        });
+
+        Schema::table('donhang', function (Blueprint $table) {
+            $table->foreign('idKhachHang')->references('idKhachHang')->on('khachhang');
+            $table->foreign('Coupon')->references('MaCoupon')->on('coupon'); 
         });
     }
 

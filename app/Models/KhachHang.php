@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class KhachHang extends Model
 {
     use HasFactory;
+
+    protected $table ="khachhang";
+    public function DonHang(){
+        return $this->hasMany(DonHang::class,'idKhachHang','idKhachHang');
+    }
+    public function SanPham()
+    {
+        return $this->belongstoMany(SanPham::class, 'chitietsanpham', 'idKhachHang', 'idSanPham');
+    }
 }
