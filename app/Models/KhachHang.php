@@ -10,6 +10,7 @@ class KhachHang extends Model
     use HasFactory;
 
     protected $table ="khachhang";
+    protected $primaryKey ='idKhachHang';
     public function DonHang(){
         return $this->hasMany(DonHang::class,'idKhachHang','idKhachHang');
     }

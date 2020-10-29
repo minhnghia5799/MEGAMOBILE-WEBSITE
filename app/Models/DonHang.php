@@ -10,6 +10,7 @@ class DonHang extends Model
     use HasFactory;
 
     protected $table ="donhang";
+    protected $primaryKey ='idDonHang';
     public function Coupon()
     {
         return $this->belongsTo(Coupon::class,'MaCoupon','Coupon');

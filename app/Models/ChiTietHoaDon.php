@@ -10,4 +10,8 @@ class ChiTietHoaDon extends Model
     use HasFactory;
 
     protected $table ="chitiethoadon";
+    protected $primaryKey = [
+        'idSanPham',
+        'idDonHang',
+    ];
 }

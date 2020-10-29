@@ -10,6 +10,7 @@ class SanPham extends Model
     use HasFactory;
 
     protected $table = "sanpham";
+    protected $primaryKey ='idSanPham';
     public function DanhMucSanPham()
     {
         return $this->belongsTo(DanhMucSanPham::class,'idDanhMuc','DanhMuc');

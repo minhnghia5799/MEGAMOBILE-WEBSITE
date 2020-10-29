@@ -10,6 +10,7 @@ class DanhMucSanPham extends Model
     use HasFactory;
 
     protected $table ="danhmucsanpham";
+    protected $primaryKey ='idDanhMuc';
     public function SanPham(){
         return $this->hasMany(SanPham::class,'DanhMuc','idDanhMuc');
     }
