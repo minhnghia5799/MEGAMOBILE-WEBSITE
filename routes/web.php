@@ -41,3 +41,9 @@ Route::get('admin/quanlyloaisach', function () {
 Route::get('admin/quanlysach', function () {
     return view('admin/quanlysach');
 });
+Route::get('/login', function () {
+    return view('shop/login');
+});
+Route::get('/signup', function () {
+    return view('shop/signup');
+});
