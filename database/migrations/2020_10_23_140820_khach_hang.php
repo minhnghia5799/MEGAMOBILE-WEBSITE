@@ -21,6 +21,7 @@ class KhachHang extends Migration
             $table->string('TenKhachHang');
             $table->string('DiaChi');
             $table->string('TinhTrang');
+            $table->timestamps();
         });
     }
 

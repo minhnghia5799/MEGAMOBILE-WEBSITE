@@ -11,6 +11,9 @@ class DanhMucSanPham extends Model
 
     protected $table ="danhmucsanpham";
     protected $primaryKey ='idDanhMuc';
+    //public $incrementing = true;
+    //protected $fillable = ['TenDanhMuc'];
+
     public function SanPham(){
         return $this->hasMany(SanPham::class,'DanhMuc','idDanhMuc');
     }

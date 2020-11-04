@@ -17,7 +17,7 @@ class SanPham extends Migration
         Schema::create('sanpham', function (Blueprint $table) {
             $table->increments('idSanPham');
             $table->string('TenSanPham');
-            $table->integer('DanhMuc');
+            $table->integer('DanhMuc')->unsigned();
             $table->float('Gia');
             $table->float('GiaKhuyenMai');
             $table->string('DuongDanAnh');
@@ -27,10 +27,11 @@ class SanPham extends Migration
             $table->integer('SoLuongHienCo');
             $table->string('TinhTrang');
             $table->date('CapNhatCuoi');
+            $table->timestamps();
         });
         
         Schema::table('sanpham', function (Blueprint $table) {
-            $table->foreign('DanhMuc')->references('idKhachHang')->on('DanhMuc');
+            $table->foreign('DanhMuc')->references('idDanhMuc')->on('danhmucsanpham');
         });
 
     }

@@ -16,6 +16,8 @@ class DanhMucSanPham extends Migration
         Schema::create('danhmucsanpham', function (Blueprint $table) {
             $table->increments('idDanhMuc');
             $table->string('TenDanhMuc');
+            $table->string('TinhTrang');
+            $table->timestamps();
         });
     }
 

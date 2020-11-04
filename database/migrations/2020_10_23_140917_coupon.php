@@ -19,6 +19,7 @@ class Coupon extends Migration
             $table->date('NgayKT');
             $table->float('GiaTri');
             $table->string('TinhTrang');
+            $table->timestamps();
         });
 
          Schema::table('coupon', function (Blueprint $table) {

@@ -14,9 +14,10 @@ class ChiTietHoaDon extends Migration
     public function up()
     {
         Schema::create('chitiethoadon', function (Blueprint $table) {
-            $table->integer('idDonHang');
-            $table->integer('idSanPham');
+            $table->integer('idDonHang')->unsigned();
+            $table->integer('idSanPham')->unsigned();
             $table->float('GiaLucMua');
+            $table->timestamps();
         });
 
         Schema::table('chitiethoadon', function (Blueprint $table) {

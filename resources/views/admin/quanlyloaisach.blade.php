@@ -86,25 +86,24 @@ The above copyright notice and this permission notice shall be included in all c
                       </th>
                     </thead>
                     <tbody>
-                    <?php
-                    // require_once SITE_ROOT."/Dao/ProductCategoriesDao.php";
-                    // $list = new ProductCategoriesDao();
-                    // $list2 = $list->getAllProductCategories();
-                    // for($i=0; $i<Count($list2); $i++)
-                    // {
-                    //   ?>
-                     <tr>
-                           <td><?php //echo $list2[$i]->getId(); ?></td>
-                            <td><?php //echo $list2[$i]->getName(); ?></td>
-                    <!-- //         <td><a href=""><input type="button" name="sua" value="sửa" > <input type="button" name="xoa" value="xóa"></a></td> -->
-                     <tr> 
-                       <?php
-                    // }
-
-                    ?>
+                    @foreach($DanhMuc as $DanhMucDT)
+                    @if ($DanhMucDT->TinhTrang=='con')
+                    <tr>
+                    <td>{{$DanhMucDT->idDanhMuc}}</td>
+                    <td>{{$DanhMucDT->TenDanhMuc}}</td>
+                    <td><a href="quanlyloaisach/{{$DanhMucDT->idDanhMuc}}"><input type="button" name="andanhmuc" value="Ẩn" ></td>
+                    </tr>
+                    @endif
+                    @endforeach
                     <tbody>
                       
                   </table>
+                  <form action="themdanhmuc" method="POST">
+                    @csrf
+                    Danh mục mới: 
+                    <input type="text" name='TenDanhMuc'>
+                    <input type="submit" value="Thêm danh mục">
+                  </form>
                     </div>
                   </div>
                 </div>

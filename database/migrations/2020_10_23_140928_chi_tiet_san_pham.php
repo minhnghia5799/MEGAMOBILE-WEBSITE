@@ -18,6 +18,7 @@ class ChiTietSanPham extends Migration
             $table->integer('idKhachHang')->unsigned();
             $table->integer('DanhGia');
             $table->text('NhanXet');
+            $table->timestamps();
         });
 
         Schema::table('chitietsanpham', function (Blueprint $table) {

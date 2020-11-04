@@ -15,11 +15,12 @@ class DonHang extends Migration
     {
         Schema::create('donhang', function (Blueprint $table) {
             $table->increments('idDonHang');
-            $table->integer('idKhachHang');
+            $table->integer('idKhachHang')->unsigned();
             $table->string('TinhTrang');
             $table->date('NgayTao');
             $table->float('TongTien');
             $table->string('Coupon');
+            $table->timestamps();
         });
 
         Schema::table('donhang', function (Blueprint $table) {
