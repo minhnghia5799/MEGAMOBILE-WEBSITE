@@ -25,5 +25,30 @@ class AdminController extends Controller
         $DanhMuc->AnDanhMucDaChon($idDanhMuc);
         return redirect('admin/quanlyloaisach');
     }
+
+    //QLKH
+    public function KhachHang(){
+        $KhachHang = new AdminService();
+        return view('admin/quanlykhachhang')->with('KhachHang', $KhachHang->HienKhachHang());
+    }
+
+    //QLCP
+    public function Coupon(){
+        $Coupon = new AdminService();
+        return view('admin/quanlycoupon')->with('Coupon', $Coupon->HienCoupon());
+    }
+
+    public function TaoThemCoupon(){
+        $Coupon = new AdminService();
+        $Coupon->ThemCouponMoi();
+        return redirect('admin/quanlycoupon');
+    }
+
+    //QLĐH
+    public function DonHang(){
+        $DonHang = new AdminService();
+        return view('admin/quanlydonhang')->with('DonHang', $DonHang->HienDonHang());
+    }
+
 }
 

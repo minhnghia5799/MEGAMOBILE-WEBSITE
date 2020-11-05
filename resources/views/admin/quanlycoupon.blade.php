@@ -77,40 +77,49 @@ The above copyright notice and this permission notice shall be included in all c
                   <table class="table">
                     <thead class=" text-primary">
                       <th>
-                        Mã đơn hàng
+                        Mã Coupon
                       </th>
                       <th>
-                        Mã Khách hàng
+                        Ngày bắt đầu
+                      </th>
+                      <th>
+                        Ngày kết thúc
+                      </th>
+                      <th   >
+                        Giá trị
                       </th>
                       <th>
                         Tình trạng
                       </th>
-                      <th   >
-                        Ngày Tạo
-                      </th>
-                      <th>
-                        Tổng Tiền 
-                      </th>
-                      <th>
-                        Coupon
-                      </th>
+                      <!-- <th>
+                        Chức năng
+                      </th> -->
                     </thead>
-                   <tbody>
-                    @foreach($DonHang as $DonHangDT)
-
-                    <tr>
-                    <td>{{$DonHangDT->idDonHang}}</td>
-                    <td>{{$DonHangDT->idKhachHang}}</td>
-                    <td>{{$DonHangDT->TinhTrang}}</td>
-                    <td>{{$DonHangDT->NgayTao}}</td>
-                    <td>{{$DonHangDT->TongTien}}</td>
-                    <td>{{$DonHangDT->Coupon}}</td>
-                    <td><a href=""><input type="button" name="chitietdonhang" value="Chi Tiết" ></td>
-                    </tr>
-                    
-                    @endforeach
-                   </tbody>
+                      <tbody>
+                          @foreach($Coupon as $DanhSachCoupon)
+                          @if ($DanhSachCoupon->TinhTrang=='con hieu luc')
+                          <tr>
+                          <td>{{$DanhSachCoupon->MaCoupon}}</td>
+                          <td>{{$DanhSachCoupon->NgayBD}}</td>
+                          <td>{{$DanhSachCoupon->NgayKT}}</td>
+                          <td>{{$DanhSachCoupon->GiaTri}}</td>
+                          <td>{{$DanhSachCoupon->TinhTrang}}</td>
+                          <td><a href="quanlycoupon/{{$DanhSachCoupon->MaCoupon}}"><input type="button" name="ancoupon" value="Ẩn" ><a href=""><input type="button" name="sua" value="Sửa" ></td>
+                          </tr>
+                          @endif
+                          @endforeach
+                      </tbody>
                   </table>
+                  <form action="themcoupon" method="POST">
+                    @csrf
+                    Coupon mới:
+                    <br> 
+                    Mã Coupon <input type="text" name='MaCoupon'> <br>
+                    Ngày bắt đầu <input type="date" name='NgayBD'> <br>
+                    Ngày kết thúc <input type="date" name='NgayKT'> <br>
+                    Giá trị <input type="text" name='GiaTri'> <br>
+                    <input type="submit" value="Thêm Coupon">
+                  </form>
                 </div>
               </div>
             </div>

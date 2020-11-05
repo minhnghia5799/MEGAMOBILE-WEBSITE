@@ -77,39 +77,35 @@ The above copyright notice and this permission notice shall be included in all c
                   <table class="table">
                     <thead class=" text-primary">
                       <th>
-                        Mã đơn hàng
+                        Mã khách hàng
                       </th>
                       <th>
-                        Mã Khách hàng
+                        Email
                       </th>
                       <th>
-                        Tình trạng
+                        Họ tên
                       </th>
                       <th   >
-                        Ngày Tạo
+                        Địa chỉ
                       </th>
                       <th>
-                        Tổng Tiền 
+                        Số điện thoại
                       </th>
-                      <th>
-                        Coupon
-                      </th>
+                      <!-- <th>
+                        Chức năng
+                      </th> -->
                     </thead>
-                   <tbody>
-                    @foreach($DonHang as $DonHangDT)
-
-                    <tr>
-                    <td>{{$DonHangDT->idDonHang}}</td>
-                    <td>{{$DonHangDT->idKhachHang}}</td>
-                    <td>{{$DonHangDT->TinhTrang}}</td>
-                    <td>{{$DonHangDT->NgayTao}}</td>
-                    <td>{{$DonHangDT->TongTien}}</td>
-                    <td>{{$DonHangDT->Coupon}}</td>
-                    <td><a href=""><input type="button" name="chitietdonhang" value="Chi Tiết" ></td>
-                    </tr>
-                    
-                    @endforeach
-                   </tbody>
+                      <tbody>
+                          @foreach($KhachHang as $DanhSachKH)
+                          <tr>
+                          <td>{{$DanhSachKH->idKhachHang}}</td>
+                          <td>{{$DanhSachKH->Email}}</td>
+                          <td>{{$DanhSachKH->TenKhachHang}}</td>
+                          <td>{{$DanhSachKH->DiaChi}}</td>
+                          <td>{{$DanhSachKH->DienThoai}}</td>
+                          </tr>
+                          @endforeach
+                      </tbody>
                   </table>
                 </div>
               </div>
