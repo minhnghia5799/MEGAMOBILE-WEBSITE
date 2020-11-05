@@ -42,13 +42,21 @@ Route::get('/admin/chitietdonhang', function () {
 //     return view('');
 // });
 //Route::get('admin/quanlyloaisach', 'App\Http\Controllers\AdminController@DanhMuc');
+Route::group(['prefix' => 'admin'], function(){
+    Route::group(['prefix' => 'coupon'], function(){
+        Route::get('/', [AdminController::class, 'Coupon']);
+        Route::post('/add', [AdminController::class, 'TaoThemCoupon']);
+    });    
+});
+
+// host/admin/coupon/delete
 Route::get('admin/quanlyloaisach', [AdminController::class, 'DanhMuc']);
 Route::get('admin/quanlykhachhang', [AdminController::class, 'KhachHang']);
-Route::get('admin/quanlycoupon', [AdminController::class, 'Coupon']);
+
 Route::get('admin/quanlydonhang', [AdminController::class, 'DonHang']);
 
 Route::post('admin/themdanhmuc', [AdminController::class, 'TaoThemDanhMuc']);
-Route::post('admin/themcoupon', [AdminController::class, 'TaoThemCoupon']);
+
 Route::get('admin/quanlyloaisach/{idDanhMuc}', [AdminController::class, 'AnDanhMuc']);
 Route::get('admin/quanlysach', function () {
     return view('admin/quanlysach');

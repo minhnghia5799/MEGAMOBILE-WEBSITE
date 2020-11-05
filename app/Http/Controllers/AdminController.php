@@ -8,9 +8,9 @@ use App\Services\AdminService;
 class AdminController extends Controller
 {
     //
-    public function DanhMuc(){
-        $DanhMuc = new AdminService();
-        return view('admin/quanlyloaisach')->with('DanhMuc', $DanhMuc->HienDanhMuc());
+    public function Category(){
+        $DanhMuc = new CategoryService();
+        return view('admin/quanlyloaisach')->with('DanhMuc', $DanhMuc->getAll());
     }
 
     public function TaoThemDanhMuc(){
