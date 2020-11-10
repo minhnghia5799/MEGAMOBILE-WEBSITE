@@ -86,9 +86,10 @@ class AdminController extends Controller
         $SanPham->SuaSanPhamDaChon($idSanPham);
         return redirect('admin/quanlysanpham');
     }
-    public function TaoThemSanPham(){
+    public function TaoThemSanPham(Request $request){
+
         $SanPham = new AdminService();
-        $SanPham->ThemSanPhamMoi();
+        $SanPham->ThemSanPhamMoi($request);
         return redirect('admin/quanlysanpham');
     }
 }

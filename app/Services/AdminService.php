@@ -103,9 +103,15 @@ class AdminService
 
         $SanPham->save();
     }
-    public function ThemSanPhamMoi()
+    public function ThemSanPhamMoi($request)
     {
         $data = request()->all();
+        if($request->hasFile('file'))
+        {
+            echo 'co';
+            $file = $request->file('file');
+            $file->move('shop/phone_img',$data['DuongDanAnh'] );
+        }
         $SanPham = new SanPham();
         $SanPham->Gia = $data['Gia'];
         $SanPham->TenSanPham = $data['TenSanPham'];

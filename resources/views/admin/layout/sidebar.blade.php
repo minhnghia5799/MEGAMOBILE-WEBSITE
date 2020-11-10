@@ -9,8 +9,8 @@
             <img src="{{asset('admin/img/logo-small.png')}}">
           </div>
         </a>
-        <a href="?page=home" class="simple-text logo-normal">
-        LIBRO BOOKSTORE
+        <a href="/MEGAMOBILE-WEBSITE/public" class="simple-text logo-normal">
+        MEGAPHONE
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
           </div> -->

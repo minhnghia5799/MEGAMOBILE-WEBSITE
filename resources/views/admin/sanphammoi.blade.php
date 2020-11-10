@@ -216,7 +216,7 @@ The above copyright notice and this permission notice shall be included in all c
               </div>
               <div class="card-body">
               
-                <form action="themsanpham" method="post">
+                <form action="themsanpham" method="post" enctype="multipart/form-data">
                   @csrf
                   <div class="row">
                     <div class="col-md-4 pr-1">
@@ -262,7 +262,7 @@ The above copyright notice and this permission notice shall be included in all c
  
 
                   <label>Thêm ảnh</label>
-                  <input type="file" name="file" >
+                  <input type="file" name="file" id="file" >
 
                   <div class="row">
                     <div class="col-md-12">
@@ -292,3 +292,4 @@ The above copyright notice and this permission notice shall be included in all c
 </body>
 
 </html>
+
