@@ -7,23 +7,23 @@ use App\Services\AdminService;
 
 class AdminController extends Controller
 {
-    //
-    public function Category(){
-        $DanhMuc = new CategoryService();
-        return view('admin/quanlyloaisach')->with('DanhMuc', $DanhMuc->getAll());
+    //Danh Muc
+    public function DanhMuc(){
+        $DanhMuc = new AdminService();
+        return view('admin/quanlydanhmuc')->with('DanhMuc', $DanhMuc->HienDanhMuc());
     }
 
     public function TaoThemDanhMuc(){
         $DanhMuc = new AdminService();
         $DanhMuc->ThemDanhMucMoi();
-        return redirect('admin/quanlyloaisach');
+        return redirect('admin/quanlydanhmuc');
     }
     
     public function AnDanhMuc($idDanhMuc)
     {
         $DanhMuc = new AdminService();
         $DanhMuc->AnDanhMucDaChon($idDanhMuc);
-        return redirect('admin/quanlyloaisach');
+        return redirect('admin/quanlydanhmuc');
     }
 
     //QLKH
@@ -44,11 +44,52 @@ class AdminController extends Controller
         return redirect('admin/quanlycoupon');
     }
 
+    public function AnCoupon($MaCoupon){
+        $Coupon = new AdminService();
+        $Coupon->AnCouponDaChon($MaCoupon);
+        return redirect('admin/quanlycoupon');
+    }
+
     //QLĐH
     public function DonHang(){
         $DonHang = new AdminService();
         return view('admin/quanlydonhang')->with('DonHang', $DonHang->HienDonHang());
     }
+    public function ChiTietDonHang($idDonHang){
+        $DonHang = new AdminService();
+        return view('admin/chitietdonhang')->with('DonHang', $DonHang->ChiTietDonHang($idDonHang));
+    }
+    public function TinhTrangDonHang($idDonHang){
+        $DonHang = new AdminService();
+        $DonHang->SuaTinhTrangDH($idDonHang);
+        return redirect('admin/quanlydonhang');
+    }
+    
 
+
+    //QLSP
+    public function SanPham(){
+        $SanPham = new AdminService();
+        return view('admin/quanlysanpham')->with('SanPham', $SanPham->HienSanPham());
+    }
+    public function ChiTietSanPham($idSanPham){
+        $SanPham = new AdminService();
+        return view('admin/chitietsanpham')->with('SanPham', $SanPham->HienChiTietSanPham($idSanPham));
+    }
+    public function AnSanPham($idSanPham){
+        $SanPham = new AdminService();
+        $SanPham->AnSanPhamDaChon($idSanPham);
+        return redirect('admin/quanlysanpham');
+    }
+    public function SuaSanPham($idSanPham){
+        $SanPham = new AdminService();
+        $SanPham->SuaSanPhamDaChon($idSanPham);
+        return redirect('admin/quanlysanpham');
+    }
+    public function TaoThemSanPham(){
+        $SanPham = new AdminService();
+        $SanPham->ThemSanPhamMoi();
+        return redirect('admin/quanlysanpham');
+    }
 }
 

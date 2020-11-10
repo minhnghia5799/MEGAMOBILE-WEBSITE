@@ -19,28 +19,34 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           
-          <li class="active ">
-            <a href="./chitietdonhang.php">
+          <li class="active " style="display:none">
+            <a href="">
               <i class="nc-icon nc-single-02"></i>
               <p>Chi tiết đơn hàng</p>
             </a>
           </li>
           <li >
-            <a href="?page=admin&dashboard=quanlysach">
+            <a href="/MEGAMOBILE-WEBSITE/public/admin/quanlysanpham">
               <i class="nc-icon nc-tile-56"></i>
-              <p>Quản lý sách</p>
+              <p>Quản lý sản phẩm</p>
             </a>
           </li>
           <li >
-            <a href="?page=admin&dashboard=quanlyloaisach">
+            <a href="/MEGAMOBILE-WEBSITE/public/admin/quanlydanhmuc">
               <i class="nc-icon nc-tile-56"></i>
-              <p>Quản lý loại sách</p>
+              <p>Quản lý danh mục</p>
             </a>
           </li>
           <li >
-            <a href="?page=admin&dashboard=quanlydonhang">
+            <a href="/MEGAMOBILE-WEBSITE/public/admin/quanlydonhang">
               <i class="nc-icon nc-tile-56"></i>
               <p>Quản lý đơn hàng</p>
+            </a>
+          </li>
+          <li >
+            <a href="/MEGAMOBILE-WEBSITE/public/admin/quanlykhachhang">
+              <i class="nc-icon nc-tile-56"></i>
+              <p>Quản lý khách hàng</p>
             </a>
           </li>
         </ul>

@@ -105,7 +105,10 @@ The above copyright notice and this permission notice shall be included in all c
                     <td>{{$DonHangDT->NgayTao}}</td>
                     <td>{{$DonHangDT->TongTien}}</td>
                     <td>{{$DonHangDT->Coupon}}</td>
-                    <td><a href=""><input type="button" name="chitietdonhang" value="Chi Tiết" ></td>
+                    <td>
+                    <a href="quanlydonhang/{{$DonHangDT->idDonHang}}"><input type="button" name="chitietdonhang" value="Chi Tiết" ></a>
+
+                    </td>
                     </tr>
                     
                     @endforeach

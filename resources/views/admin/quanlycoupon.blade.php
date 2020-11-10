@@ -110,7 +110,7 @@ The above copyright notice and this permission notice shall be included in all c
                           @endforeach
                       </tbody>
                   </table>
-                  <form action="themcoupon" method="POST">
+                  <form action="quanlycoupon/themcoupon" method="POST">
                     @csrf
                     Coupon mới:
                     <br> 

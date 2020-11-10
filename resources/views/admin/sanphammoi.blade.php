@@ -212,121 +212,73 @@ The above copyright notice and this permission notice shall be included in all c
           <div class="col-md-12">
             <div class="card card-user">
               <div class="card-header">
-                <h5 class="card-title">Chi tiết đơn hàng</h5>
+                <h5 class="card-title">Thêm sản phẩm mới</h5>
               </div>
               <div class="card-body">
-                
-                <?php
-                  // require_once SITE_ROOT."/Dao/ShippingInfocontentDao.php";
-                  // require_once SITE_ROOT."/Dao/ProductsDao.php";
-                  // $dao1= new ShippingInfocontentDao();
-                  // $dao2= new ProductsDao();
-
-                  // $list = $dao1->getShippingInfocontentByIdship($_GET['id']);
-                  // $tong = 0;
-                  // for ($i = 0; $i < Count($list); $i++)
-                  // {
-                  //   $sp = $dao2->getProductById($list[$i]->getProductId());
-                  
-                  //   $tong = $tong + $list[$i]->getAmount() * $sp->getSale();
-                ?>
-                  
+              
+                <form action="themsanpham" method="post">
+                  @csrf
                   <div class="row">
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
-                        <label>Id đơn hàng</label>
-                        <input type="text" class="form-control" name="idDonHang" value="{{$DonHang[0]->idDonHang}}">
+                        <label>Tên sản phẩm</label>
+                        <input type="text" class="form-control" name="TenSanPham" value="">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
-                        <label>Id khách hàng</label>
-                        <input type="number" class="form-control" name="idKhachHang" value="{{$DonHang[0]->idKhachHang}}">
+                        <label>Số lượng</label>
+                        <input type="number" class="form-control" name="SoLuongHienCo" value="">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
-                        <label>Tình trạng</label>
-                        <input type="" class="form-control" name="TinhTrang" value="{{$DonHang[0]->TinhTrang}}">
+                        <label>Giá</label>
+                        <input type="number" class="form-control" name="Gia" value="">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
-                        <label>Ngày tạo</label>
-                        <input type="" class="form-control" name="NgayTao" value="">
+                        <label>Giá khuyến mãi</label>
+                        <input type="number" class="form-control" name="GiaKhuyenMai" value="">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
-                        <label>Tổng tiền</label>
-                        <input type="number" class="form-control" name="TongTien" value="{{$DonHang[0]->TongTien}}">
+                        <label>Danh mục</label>
+                        <input type="number" class="form-control" name="DanhMuc" value="DanhMuc">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
-                        <label>Coupon</label>
-                        <input type="nmber" class="form-control" name="Coupon" value="{{$DonHang[0]->Coupon}}">
+                        <label>Đường dẫn ảnh</label>
+                        <input type="" class="form-control" name="DuongDanAnh" value="">
                       </div>
                     </div>
+
                   </div>
-                  <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Mã sản phẩm
-                      </th>
-                      <th>
-                        Giá lúc mua
-                      </th>
-                    </thead>
-                   <tbody>
-                    @foreach($DonHang as $DonHangDT)
+ 
 
-                    <tr>
-                    <td>{{$DonHangDT->idDonHang}}</td>
-                    <td>{{$DonHangDT->GiaLucMua}}</td>
+                  <label>Thêm ảnh</label>
+                  <input type="file" name="file" >
 
-                    <td>
-
-                    </td>
-                    </tr>
-                    
-                    @endforeach
-                   </tbody>
-                  </table>
-                </div>
-              </div>
-
-
-                  <!-- <div class="row">
+                  <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Sửa</label>
-                        <textarea class="form-control textarea"><?php /*echo $tong; */?></textarea>
+                        <label>Mô tả</label>
+                        <input type="text" name="MoTa" class="form-control textarea">
                       </div>
                     </div>
-                  </div> -->
-                  <form action="capnhattrangthai/{{$DonHangDT->idDonHang}}" method="post">
-                  @csrf
-                    Thay đổi trạng thái đơn hàng:
-                    <select name="tinhtrangdonhang" id="" >
-                    <option value="Chờ xử lý">Chờ xử lý</option>
-                    <option value="Đang xử lý">Đang xử lý</option>
-                    <option value="Đang giao">Đang giao</option>
-                    <option value="Thành công">Thành công</option>
-                    <option value="Thất bại">Thất bại</option>
-                    <option value="Hủy">Hủy</option>
-                    </select>
-                    <div class="row">
-                    <div class="update ml-auto mr-auto">
-                      <input type="submit" class="btn btn-primary btn-round" value="Cập nhật">
-                    </div>
-                    </div>
-                    </form>
+                  </div>
 
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <input type="submit" class="btn btn-primary btn-round" value="Thêm sản phẩm">
+                    </div>
+                  </div>
+                </form>
                 
               </div>
             </div>

@@ -91,14 +91,14 @@ The above copyright notice and this permission notice shall be included in all c
                     <tr>
                     <td>{{$DanhMucDT->idDanhMuc}}</td>
                     <td>{{$DanhMucDT->TenDanhMuc}}</td>
-                    <td><a href="quanlyloaisach/{{$DanhMucDT->idDanhMuc}}"><input type="button" name="andanhmuc" value="Ẩn" ></td>
+                    <td><a href="quanlydanhmuc/{{$DanhMucDT->idDanhMuc}}"><input type="button" name="andanhmuc" value="Ẩn" ></td>
                     </tr>
                     @endif
                     @endforeach
                     <tbody>
                       
                   </table>
-                  <form action="themdanhmuc" method="POST">
+                  <form action="quanlydanhmuc/themdanhmuc" method="POST">
                     @csrf
                     Danh mục mới: 
                     <input type="text" name='TenDanhMuc'>

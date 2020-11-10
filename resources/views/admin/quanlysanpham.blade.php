@@ -64,7 +64,13 @@ The above copyright notice and this permission notice shall be included in all c
 
 
 </div> -->
+
       <div class="content">
+                    <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <a href="quanlysanpham/sanphammoi" class="btn btn-primary btn-round" >Thêm sản phẩm</a>
+                    </div>
+                    </div>
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -76,57 +82,41 @@ The above copyright notice and this permission notice shall be included in all c
                   <table class="table">
                     <thead class=" text-primary">
                       <th>
-                        Mã sách
+                        Mã sản phẩm
                       </th>
                       <th>
-                        Tên sách
+                        Tên sản phẩm
                       </th>
                       <th>
-                        Loại sách
+                        Danh mục
                       </th>
                       <th>
                         Giá
                       </th>
-                      <th>
-                        Giá khuyến mãi
-                      </th>
-                      <th>
-                        Ảnh sách
-                      </th>
-                      <th>
-                        Số lượng bán
-                      </th>
-                      <th>
-                        Lượt xem
-                      </th>
-                      <th>
-                        Chức năng
-                      </th>
+
                     </thead>
                     <tbody>
-                    <?php
-                    // require_once SITE_ROOT."/Dao/ProductsDao.php";
-                    // $list = new ProductsDao();
-                    // $list2 = $list->getAllProducts();
-                    // for($i=0; $i<Count($list2); $i++)
-                    // {
-                    //   ?>
-                       <!-- <tr>
-                             <td><?php // echo $list2[$i]->getId(); ?></td>
-                             <td><?php //echo $list2[$i]->getName(); ?></td>
-                             <td><?php // echo $list2[$i]->getCategory(); ?></td>
-                             <td><?php // echo $list2[$i]->getPrice(); ?></td>
-                             <td><?php // echo $list2[$i]->getSale(); ?></td>
-                             <td><?php // echo $list2[$i]->getImageLink(); ?></td>
-                             <td><?php // echo $list2[$i]->getSelledAmount(); ?></td>
-                             <td><?php //echo $list2[$i]->getViewedAmount(); ?></td>
-                            <td><a href=""><input type="button" name="sua" value="sửa" ></a> 
-                             <a href="?page=admin&dashboard=quanlysach&action=remove&id=<?php //echo $list2[$i]->getId(); ?>"><input type="button" name="xoa" value="xóa"></a></td>
-                       <tr>  -->
-                       <?php
-                    // }
-
-                    ?>
+                    @foreach($SanPham as $DanhSachSanPham)
+                          @if ($DanhSachSanPham->TinhTrang=='con')
+                          <tr>
+                          <td>{{$DanhSachSanPham->idSanPham}}</td>
+                          <td>{{$DanhSachSanPham->TenSanPham}}</td>
+                          <td>
+                            @if($DanhSachSanPham->DanhMuc==1)
+                              iPhone
+                            @elseif($DanhSachSanPham->DanhMuc==2)
+                              Samsung
+                            @elseif($DanhSachSanPham->DanhMuc==3)
+                              Oppo
+                            @else($DanhSachSanPham->DanhMuc==4)
+                              Vsmart
+                            @endif
+                          </td>
+                          <td>{{$DanhSachSanPham->Gia}}</td>
+                          <td><a href="quanlysanpham/{{$DanhSachSanPham->idSanPham}}"><input type="button" name="chitietsanpham" value="Chi tiết" ><a href="quanlysanpham/ansanpham/{{$DanhSachSanPham->idSanPham}}"><input type="button" name="ansanpham" value="Ẩn" ></td>
+                          </tr>
+                          @endif
+                    @endforeach
                     <tbody>
                   </table>
                   </div>
