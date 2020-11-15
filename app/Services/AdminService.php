@@ -29,6 +29,7 @@ class AdminService
         $DanhMuc = DanhMucSanPham::find($idDanhMuc);
         $DanhMuc->TinhTrang = 'an';
         $DanhMuc->save();
+        
     }
 
     //KH
@@ -80,7 +81,10 @@ class AdminService
     }
 
     public function HienChiTietSanPham($idSanPham){
-        return SanPham::find($idSanPham);
+        $DanhMuc = DB::table('danhmucsanpham')->join('sanpham', 'danhmucsanpham.idDanhMuc', '=', 'sanpham.DanhMuc')->where('sanpham.idSanPham',$idSanPham)->value('TenDanhMuc');
+        $SanPham = SanPham::find($idSanPham);
+        $SanPham->DanhMuc = $DanhMuc;
+        return $SanPham;
     }
 
     public function AnSanPhamDaChon($idSanPham)
@@ -124,6 +128,11 @@ class AdminService
         $SanPham->SoLuotXem = 1;
         $SanPham->TinhTrang = 'con';
         $SanPham->save();
+    }
+    public function LaySanPhamTheoDanhMuc($idDanhMuc)
+    {
+        $SanPham = DB::table('sanpham')->join('danhmucsanpham','sanpham.DanhMuc','=','danhmucsanpham.idDanhMuc')->where('danhmucsanpham.idDanhMuc',$idDanhMuc)->get();
+        return $SanPham;
     }
 
 }

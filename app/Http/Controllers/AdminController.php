@@ -22,7 +22,13 @@ class AdminController extends Controller
     public function AnDanhMuc($idDanhMuc)
     {
         $DanhMuc = new AdminService();
+        $SanPham = new AdminService();
         $DanhMuc->AnDanhMucDaChon($idDanhMuc);
+        $DanhSachSanPham = $SanPham->LaySanPhamTheoDanhMuc($idDanhMuc);
+        foreach ($DanhSachSanPham as $key => $value) {
+            # code...
+            $SanPham->AnSanPhamDaChon($value->idSanPham);
+        }
         return redirect('admin/quanlydanhmuc');
     }
 
@@ -73,6 +79,7 @@ class AdminController extends Controller
         return view('admin/quanlysanpham')->with('SanPham', $SanPham->HienSanPham());
     }
     public function ChiTietSanPham($idSanPham){
+        
         $SanPham = new AdminService();
         return view('admin/chitietsanpham')->with('SanPham', $SanPham->HienChiTietSanPham($idSanPham));
     }
@@ -91,6 +98,11 @@ class AdminController extends Controller
         $SanPham = new AdminService();
         $SanPham->ThemSanPhamMoi($request);
         return redirect('admin/quanlysanpham');
+    }
+    public function TaoSanPham(){
+        $SanPham = new AdminService();
+        
+        return view('admin/sanphammoi')->with('SanPham', $SanPham->HienDanhMuc());
     }
 }
 

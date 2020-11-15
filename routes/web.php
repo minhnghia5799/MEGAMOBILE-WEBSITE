@@ -15,10 +15,6 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/admin/quanlysanpham/sanphammoi', function () {
-    return view('admin/sanphammoi');
-});
-
 // host/admin/coupon/delete
 Route::group(['prefix' => 'admin'], function(){
     Route::group(['prefix' => 'quanlycoupon'], function(){
@@ -41,11 +37,13 @@ Route::group(['prefix' => 'admin'], function(){
 
     });
     Route::group(['prefix' => 'quanlysanpham'], function(){
+        Route::get('/sanphammoi', [AdminController::class, 'TaoSanPham']);
         Route::get('/', [AdminController::class, 'SanPham']);
         Route::get('/{idSanPham}', [AdminController::class, 'ChiTietSanPham']);
         Route::get('ansanpham/{idSanPham}', [AdminController::class, 'AnSanPham']);
         Route::post('{idSanPham}/suasanpham', [AdminController::class, 'SuaSanPham']);
         Route::post('/themsanpham', [AdminController::class, 'TaoThemSanPham']);
+
     });
 
 });

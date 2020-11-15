@@ -262,7 +262,7 @@ The above copyright notice and this permission notice shall be included in all c
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>Danh mục</label>
-                        <input type="number" class="form-control" name="DanhMuc" value="{{$SanPham->DanhMuc}}">
+                        <input type="" class="form-control" name="DanhMuc" disabled value="{{$SanPham->DanhMuc}}">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
@@ -297,7 +297,7 @@ The above copyright notice and this permission notice shall be included in all c
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <img src="{{asset('$SanPham->DuongDanAnh')}}" alt="ko co">
+                        <img src="/{{$SanPham->DuongDanAnh}}" alt="ko co">
                       </div>
                     </div>
                   </div>

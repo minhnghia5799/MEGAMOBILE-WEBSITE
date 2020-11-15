@@ -248,7 +248,14 @@ The above copyright notice and this permission notice shall be included in all c
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>Danh mục</label>
-                        <input type="number" class="form-control" name="DanhMuc" value="DanhMuc">
+                        <br>
+                        <select name="DanhMuc" id="" >
+                          @foreach($SanPham as $DanhMucSanPham)
+                          @if($DanhMucSanPham->TinhTrang=='con')
+                          <option value="{{$DanhMucSanPham->TenDanhMuc}}">{{$DanhMucSanPham->TenDanhMuc}}</option>
+                          @endif
+                          @endforeach
+                        </select>
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">

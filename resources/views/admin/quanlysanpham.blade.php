@@ -108,8 +108,10 @@ The above copyright notice and this permission notice shall be included in all c
                               Samsung
                             @elseif($DanhSachSanPham->DanhMuc==3)
                               Oppo
-                            @else($DanhSachSanPham->DanhMuc==4)
+                            @elseif($DanhSachSanPham->DanhMuc==4)
                               Vsmart
+                            @else($DanhSachSanPham->DanhMuc==4)
+                              Bphone
                             @endif
                           </td>
                           <td>{{$DanhSachSanPham->Gia}}</td>
