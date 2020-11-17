@@ -7,102 +7,136 @@ use App\Services\AdminService;
 
 class AdminController extends Controller
 {
-    //Danh Muc
-    public function DanhMuc(){
+    public function index()
+    {
+        //return $this->danhMuc();
         $DanhMuc = new AdminService();
-        return view('admin/quanlydanhmuc')->with('DanhMuc', $DanhMuc->HienDanhMuc());
+        return view('admin/danhmuc')->with('DanhMuc', $DanhMuc->HienDanhMuc());
     }
 
-    public function TaoThemDanhMuc(){
+
+    // ---------- Danh Muc ----------
+    // All
+    public function danhMuc()
+    {
+        $DanhMuc = new AdminService();
+        return view('admin/danhmuc')->with('DanhMuc', $DanhMuc->HienDanhMuc());
+    }
+    // Insert
+    public function insertDanhMuc()
+    {
         $DanhMuc = new AdminService();
         $DanhMuc->ThemDanhMucMoi();
-        return redirect('admin/quanlydanhmuc');
+        return redirect('admin/danhmuc');
     }
-    
-    public function AnDanhMuc($idDanhMuc)
+    // Hidden
+    public function hiddenDanhMuc($id)
     {
         $DanhMuc = new AdminService();
         $SanPham = new AdminService();
-        $DanhMuc->AnDanhMucDaChon($idDanhMuc);
-        $DanhSachSanPham = $SanPham->LaySanPhamTheoDanhMuc($idDanhMuc);
+        $DanhMuc->AnDanhMucDaChon($id);
+        $DanhSachSanPham = $SanPham->LaySanPhamTheoDanhMuc($id);
         foreach ($DanhSachSanPham as $key => $value) {
             # code...
             $SanPham->AnSanPhamDaChon($value->idSanPham);
         }
-        return redirect('admin/quanlydanhmuc');
+        return redirect('admin/danhmuc');
     }
 
-    //QLKH
-    public function KhachHang(){
+
+    // ---------- Khach Hang ----------
+    // All
+    public function khachHang()
+    {
         $KhachHang = new AdminService();
-        return view('admin/quanlykhachhang')->with('KhachHang', $KhachHang->HienKhachHang());
+        return view('admin/khachhang')->with('KhachHang', $KhachHang->HienKhachHang());
     }
 
-    //QLCP
-    public function Coupon(){
+
+    // ---------- Coupon ----------
+    // All
+    public function coupon()
+    {
         $Coupon = new AdminService();
-        return view('admin/quanlycoupon')->with('Coupon', $Coupon->HienCoupon());
+        return view('admin/coupon')->with('Coupon', $Coupon->HienCoupon());
     }
-
-    public function TaoThemCoupon(){
+    // Insert
+    public function insertCoupon()
+    {
         $Coupon = new AdminService();
         $Coupon->ThemCouponMoi();
-        return redirect('admin/quanlycoupon');
+        return redirect('admin/coupon');
     }
-
-    public function AnCoupon($MaCoupon){
+    // Hidden
+    public function hiddenCoupon($id)
+    {
         $Coupon = new AdminService();
-        $Coupon->AnCouponDaChon($MaCoupon);
-        return redirect('admin/quanlycoupon');
+        $Coupon->AnCouponDaChon($id);
+        return redirect('admin/coupon');
     }
 
-    //QLĐH
-    public function DonHang(){
+
+    // ---------- Don Hang ----------
+    // All
+    public function donHang()
+    {
         $DonHang = new AdminService();
-        return view('admin/quanlydonhang')->with('DonHang', $DonHang->HienDonHang());
+        return view('admin/donhang')->with('DonHang', $DonHang->HienDonHang());
     }
-    public function ChiTietDonHang($idDonHang){
+    // Detail
+    public function getDonHang($id)
+    {
         $DonHang = new AdminService();
-        return view('admin/chitietdonhang')->with('DonHang', $DonHang->ChiTietDonHang($idDonHang));
+        return view('admin/donhang-detail')->with('DonHang', $DonHang->ChiTietDonHang($id));
     }
-    public function TinhTrangDonHang($idDonHang){
+    // Update
+    public function updateDonHang($id){
         $DonHang = new AdminService();
-        $DonHang->SuaTinhTrangDH($idDonHang);
-        return redirect('admin/quanlydonhang');
+        $DonHang->SuaTinhTrangDH($id);
+        return redirect('admin/donhang');
     }
     
 
-
-    //QLSP
-    public function SanPham(){
+    // ---------- San Pham ----------
+    // All
+    public function sanPham()
+    {
         $SanPham = new AdminService();
-        return view('admin/quanlysanpham')->with('SanPham', $SanPham->HienSanPham());
+        return view('admin/sanpham')->with('SanPham', $SanPham->HienSanPham());
     }
-    public function ChiTietSanPham($idSanPham){
-        
+    // Detail
+    public function getSanPham($id)
+    {
         $SanPham = new AdminService();
-        return view('admin/chitietsanpham')->with('SanPham', $SanPham->HienChiTietSanPham($idSanPham));
+        return view('admin/sanpham-detail')->with('SanPham', $SanPham->HienChiTietSanPham($id));
     }
-    public function AnSanPham($idSanPham){
+    // Add
+    public function addSanPham()
+    {
         $SanPham = new AdminService();
-        $SanPham->AnSanPhamDaChon($idSanPham);
-        return redirect('admin/quanlysanpham');
+        return view('admin/addsanpham')->with('SanPham', $SanPham->HienDanhMuc());
     }
-    public function SuaSanPham($idSanPham){
-        $SanPham = new AdminService();
-        $SanPham->SuaSanPhamDaChon($idSanPham);
-        return redirect('admin/quanlysanpham');
-    }
-    public function TaoThemSanPham(Request $request){
-
+    // Insert
+    public function insertSanPham(Request $request)
+    {
         $SanPham = new AdminService();
         $SanPham->ThemSanPhamMoi($request);
-        return redirect('admin/quanlysanpham');
+        return redirect('admin/sanpham');
     }
-    public function TaoSanPham(){
+    // Update
+    public function updateSanPham($id)
+    {
         $SanPham = new AdminService();
-        
-        return view('admin/sanphammoi')->with('SanPham', $SanPham->HienDanhMuc());
+        $SanPham->SuaSanPhamDaChon($id);
+        return redirect('admin/sanpham');
     }
+    // Hidden
+    public function hiddenSanPham($id)
+    {
+        $SanPham = new AdminService();
+        $SanPham->AnSanPhamDaChon($id);
+        return redirect('admin/sanpham');
+    }
+
 }
 

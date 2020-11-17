@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,60 +14,72 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-// host/admin/coupon/delete
+// ADMIN
 Route::group(['prefix' => 'admin'], function(){
-    Route::group(['prefix' => 'quanlycoupon'], function(){
-        Route::get('/', [AdminController::class, 'Coupon']);
-        Route::post('/themcoupon', [AdminController::class, 'TaoThemCoupon']);
-        Route::get('/{MaCoupon}', [AdminController::class, 'AnCoupon']);
-    });
-    Route::group(['prefix' => 'quanlydanhmuc'], function(){
-        Route::get('/', [AdminController::class, 'DanhMuc']);
-        Route::get('/{idDanhMuc}', [AdminController::class, 'AnDanhMuc']);
-        Route::post('/themdanhmuc', [AdminController::class, 'TaoThemDanhMuc']);        
-    });
-    Route::group(['prefix' => 'quanlykhachhang'], function(){
-        Route::get('/', [AdminController::class, 'KhachHang']);    
-    });
-    Route::group(['prefix' => 'quanlydonhang'], function(){
-        Route::get('/', [AdminController::class, 'DonHang']);
-        Route::get('/{idDonHang}', [AdminController::class, 'ChiTietDonHang']);
-        Route::post('/capnhattrangthai/{idDonHang}', [AdminController::class, 'TinhTrangDonHang']);
+    Route::get('/', [AdminController::class, 'index']);
 
-    });
-    Route::group(['prefix' => 'quanlysanpham'], function(){
-        Route::get('/sanphammoi', [AdminController::class, 'TaoSanPham']);
-        Route::get('/', [AdminController::class, 'SanPham']);
-        Route::get('/{idSanPham}', [AdminController::class, 'ChiTietSanPham']);
-        Route::get('ansanpham/{idSanPham}', [AdminController::class, 'AnSanPham']);
-        Route::post('{idSanPham}/suasanpham', [AdminController::class, 'SuaSanPham']);
-        Route::post('/themsanpham', [AdminController::class, 'TaoThemSanPham']);
-
+    // Coupon
+    Route::group(['prefix' => 'coupon'], function(){
+        Route::get('/', [AdminController::class, 'coupon']);
+        Route::post('/insert', [AdminController::class, 'insertCoupon']);
+        Route::get('/hidden/{id}', [AdminController::class, 'hiddenCoupon']);
     });
 
+    // Danh Muc
+    Route::group(['prefix' => 'danhmuc'], function(){
+        Route::get('/', [AdminController::class, 'danhMuc']);
+        Route::post('/insert', [AdminController::class, 'insertDanhMuc']);  
+        Route::get('/hidden/{id}', [AdminController::class, 'hiddenDanhMuc']);
+    });
+
+    // Khach Hang
+    Route::group(['prefix' => 'khachhang'], function(){
+        Route::get('/', [AdminController::class, 'khachHang']);    
+    });
+
+    // Don Hang
+    Route::group(['prefix' => 'donhang'], function(){
+        Route::get('/', [AdminController::class, 'donHang']);
+        Route::get('/{id}', [AdminController::class, 'getDonHang']);
+        Route::post('/update/{id}', [AdminController::class, 'updateDonHang']);
+    });
+
+    // San Pham
+    Route::group(['prefix' => 'sanpham'], function(){
+        Route::get('/', [AdminController::class, 'sanPham']);
+        Route::get('/{id}', [AdminController::class, 'getSanPham']);
+        Route::get('/add', [AdminController::class, 'addSanPham']);
+        Route::post('/insert', [AdminController::class, 'insertSanPham']);
+        Route::post('/update/{id}', [AdminController::class, 'updateSanPham']);
+        Route::get('/hidden/{id}', [AdminController::class, 'hiddenSanPham']);
+    });
 });
 
+// Dang Nhap - Dang Ky
 Route::get('/login', 'LoginController@index');
-Route::get('/signup', function () {
+Route::get('/signup', function (){
     return view('shop/signup');
 });
 
-Route::get('/', function () {
+// Cua Hang
+Route::get('/', function (){
     return view('shop/index');
 });
-
-Route::get('/cart', function () {
-    return view('shop/cart');
-});
-Route::get('/checkout', function () {
-    return view('shop/checkout');
-});
-Route::get('/store', function () {
+Route::get('/store', function (){
     return view('shop/store');
 });
-Route::get('/single-product', function () {
+Route::get('/single-product', function (){
     return view('shop/single-product');
 });
+
+// Gio Hang - Thanh Toan
+Route::get('/cart', function (){
+    return view('shop/cart');
+});
+Route::get('/checkout', function (){
+    return view('shop/checkout');
+});
+
 
 
 
