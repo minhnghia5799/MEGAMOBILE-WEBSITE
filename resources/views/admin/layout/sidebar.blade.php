@@ -6,10 +6,10 @@
       <div class="logo">
         <a href="?page=home" class="simple-text logo-mini">
           <div class="logo-image-small">
-            <img src="{{asset('admin/img/logo-small.png')}}">
+            <img src="img/logo-small.png">
           </div>
         </a>
-        <a href="/MEGAMOBILE-WEBSITE/public" class="simple-text logo-normal">
+        <a href="/" class="simple-text logo-normal">
         MEGAPHONE
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
@@ -26,25 +26,25 @@
             </a>
           </li>
           <li >
-            <a href="/MEGAMOBILE-WEBSITE/public/admin/quanlysanpham">
+            <a href="sanpham">
               <i class="nc-icon nc-tile-56"></i>
               <p>Quản lý sản phẩm</p>
             </a>
           </li>
           <li >
-            <a href="/MEGAMOBILE-WEBSITE/public/admin/quanlydanhmuc">
+            <a href="danhmuc">
               <i class="nc-icon nc-tile-56"></i>
               <p>Quản lý danh mục</p>
             </a>
           </li>
           <li >
-            <a href="/MEGAMOBILE-WEBSITE/public/admin/quanlydonhang">
+            <a href="donhang">
               <i class="nc-icon nc-tile-56"></i>
               <p>Quản lý đơn hàng</p>
             </a>
           </li>
           <li >
-            <a href="/MEGAMOBILE-WEBSITE/public/admin/quanlykhachhang">
+            <a href="khachhang">
               <i class="nc-icon nc-tile-56"></i>
               <p>Quản lý khách hàng</p>
             </a>

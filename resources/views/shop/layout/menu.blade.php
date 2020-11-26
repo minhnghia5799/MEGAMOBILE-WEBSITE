@@ -11,8 +11,8 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="">Home</a></li>
-                        <li><a href="store">Shop page</a></li>
+                        <li class=""><a href="/">Home</a></li>
+                        <li><a href="/store">Shop page</a></li>
                         <li><a href="single-product">Single product</a></li>
                         <li><a href="cart">Cart</a></li>
                         <li><a href="checkout">Checkout</a></li>

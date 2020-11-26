@@ -83,7 +83,7 @@ class AdminService
     public function HienChiTietSanPham($idSanPham){
         $DanhMuc = DB::table('danhmucsanpham')->join('sanpham', 'danhmucsanpham.idDanhMuc', '=', 'sanpham.DanhMuc')->where('sanpham.idSanPham',$idSanPham)->value('TenDanhMuc');
         $SanPham = SanPham::find($idSanPham);
-        $SanPham->DanhMuc = $DanhMuc;
+        //$SanPham->DanhMuc = $DanhMuc;
         return $SanPham;
     }
 

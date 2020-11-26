@@ -229,9 +229,11 @@
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">Top Sellers</h2>
                         <a href="" class="wid-view-more">View All</a>
+                       
+                        @foreach($SanPham2 as $SanPham2)
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="shop/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
+                            <a href="single-product.html"><img src="" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">{{$SanPham2->TenSanPham}}</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -240,10 +242,11 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
+                                <ins>{{$SanPham2->Gia}}</ins> <del>{{$SanPham2->GiaKhuyenMai}}</del>
                             </div>                            
                         </div>
-                        <div class="single-wid-product">
+                        @endforeach
+                        <!-- <div class="single-wid-product">
                             <a href="single-product.html"><img src="shop/img/product-thumb-2.jpg" alt="" class="product-thumb"></a>
                             <h2><a href="single-product.html">Apple new mac book 2015</a></h2>
                             <div class="product-wid-rating">
@@ -270,16 +273,17 @@
                             <div class="product-wid-price">
                                 <ins>$400.00</ins> <del>$425.00</del>
                             </div>                            
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">Recently Viewed</h2>
                         <a href="#" class="wid-view-more">View All</a>
+                        @foreach($SanPham3 as $SanPham3)
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="shop/img/product-thumb-4.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Sony playstation microsoft</a></h2>
+                            <a href="single-product.html"><img src="" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">{{$SanPham3->TenSanPham}}</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -288,10 +292,11 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
+                                <ins>{{$SanPham2->Gia}}</ins> <del>{{$SanPham3->GiaKhuyenMai}}</del>
                             </div>                            
                         </div>
-                        <div class="single-wid-product">
+                        @endforeach
+                        <!-- <div class="single-wid-product">
                             <a href="single-product.html"><img src="shop/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
                             <h2><a href="single-product.html">Sony Smart Air Condtion</a></h2>
                             <div class="product-wid-rating">
@@ -304,8 +309,8 @@
                             <div class="product-wid-price">
                                 <ins>$400.00</ins> <del>$425.00</del>
                             </div>                            
-                        </div>
-                        <div class="single-wid-product">
+                        </div> -->
+                        <!-- <div class="single-wid-product">
                             <a href="single-product.html"><img src="shop/img/product-thumb-2.jpg" alt="" class="product-thumb"></a>
                             <h2><a href="single-product.html">Samsung gallaxy note 4</a></h2>
                             <div class="product-wid-rating">
@@ -318,16 +323,17 @@
                             <div class="product-wid-price">
                                 <ins>$400.00</ins> <del>$425.00</del>
                             </div>                            
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">Top New</h2>
                         <a href="#" class="wid-view-more">View All</a>
+                        @foreach($SanPham1 as $SanPham1)
                         <div class="single-wid-product">
-                            <a href="single-product.html"><img src="shop/img/product-thumb-3.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.html">Apple new i phone 6</a></h2>
+                            <a href="single-product.html"><img src="" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">{{$SanPham1->TenSanPham}}</a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -336,10 +342,11 @@
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>$400.00</ins> <del>$425.00</del>
+                                <ins>{{$SanPham1->Gia}}</ins> <del>{{$SanPham1->GiaKhuyenMai}}</del>
                             </div>                            
                         </div>
-                        <div class="single-wid-product">
+                        @endforeach
+                        <!-- <div class="single-wid-product">
                             <a href="single-product.html"><img src="shop/img/product-thumb-4.jpg" alt="" class="product-thumb"></a>
                             <h2><a href="single-product.html">Samsung gallaxy note 4</a></h2>
                             <div class="product-wid-rating">
@@ -366,7 +373,7 @@
                             <div class="product-wid-price">
                                 <ins>$400.00</ins> <del>$425.00</del>
                             </div>                            
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\SingleProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +59,16 @@ Route::group(['prefix' => 'admin'], function(){
     });
 });
 
+//SHOP
+Route::group(['prefix' => '/'], function(){
+    Route::get('/', [IndexController::class, 'Index']);
+    Route::get('store', [StoreController::class, 'Store']);
+    Route::get('store/search', [StoreController::class, 'Search']);
+    Route::get('store/DanhMuc', [StoreController::class, 'SPTheoDM']);
+    Route::get('/single-product/{idSanPham}', [SingleProductController::class, 'SingleProduct']);
+    
+});
+
 // Dang Nhap - Dang Ky
 Route::get('/login', 'LoginController@index');
 Route::get('/signup', function (){
@@ -62,15 +76,15 @@ Route::get('/signup', function (){
 });
 
 // Cua Hang
-Route::get('/', function (){
-    return view('shop/index');
-});
-Route::get('/store', function (){
-    return view('shop/store');
-});
-Route::get('/single-product', function (){
-    return view('shop/single-product');
-});
+// Route::get('/', function (){
+//     return view('shop/index');
+// });
+// Route::get('/store', function (){
+//     return view('shop/store');
+// });
+// Route::get('/single-product', function (){
+//     return view('shop/single-product');
+// });
 
 // Gio Hang - Thanh Toan
 Route::get('/cart', function (){

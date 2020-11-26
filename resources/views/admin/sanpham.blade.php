@@ -68,7 +68,7 @@ The above copyright notice and this permission notice shall be included in all c
       <div class="content">
                     <div class="row">
                     <div class="update ml-auto mr-auto">
-                      <a href="quanlysanpham/sanphammoi" class="btn btn-primary btn-round" >Thêm sản phẩm</a>
+                      <a href="sanpham/add" class="btn btn-primary btn-round" >Thêm sản phẩm</a>
                     </div>
                     </div>
         <div class="row">
